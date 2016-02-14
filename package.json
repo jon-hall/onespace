@@ -1,0 +1,40 @@
+{
+  "name": "onespace",
+  "version": "0.0.0",
+  "description": "one space",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run jasmine && npm run lint",
+    "jasmine": "SET JASMINE_CONFIG_PATH=./test/jasmine.json&& jasmine",
+    "lint": "eslint src/*.js test/*.js",
+    "dev": "SET JASMINE_CONFIG_PATH=./test/jasmine.json&& nodemon --exec \"npm test\"",
+    "doc": "jsdoc2md src/*.js > API.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jon-hall/onespace.git"
+  },
+  "keywords": [
+    "onespace",
+    "one",
+    "space"
+  ],
+  "author": "Jon Hall <jon_hall@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jon-hall/onespace/issues"
+  },
+  "engines": {
+    "node": ">=4.0.0",
+    "npm": ">=3.0.0"
+  },
+  "homepage": "https://github.com/jon-hall/onespace#readme",
+  "devDependencies": {
+    "eslint": "^1.10.3",
+    "jasmine": "^2.4.1",
+    "jsdoc-to-markdown": "^1.3.2",
+    "nodemon": "^1.8.1"
+  },
+  "dependencies": {
+  }
+}
