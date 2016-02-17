@@ -1,12 +1,10 @@
 'use strict';
 
 const map = {},
-    COMBINING_DIACRITICALS_START = parseInt('0300', 16);
+    COMBINING_DIACRITICALS_START = parseInt('0300', 16),
+    get_code = String.fromCharCode.bind(String);
 
-let get_code = String.fromCharCode.bind(String),
-    adjustment = 0;
-
-for(let i = 0, limit = 111; i < limit; i++) {
+for(let i = 0, limit = 111, adjustment = 0; i < limit; i++) {
     // Create a map in both directions
     map[map[get_code(i + adjustment)] = get_code(i + COMBINING_DIACRITICALS_START)] = get_code(i + adjustment);
     if(i === 15) {
