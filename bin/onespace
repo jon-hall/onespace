@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+
+'use strict';
+const gulp = require('gulp'),
+    through2 = require('through2'),
+    gutil = require('gulp-util'),
+    PluginError = gutil.PluginError,
+    onespace = require('../'),
+    args = require('yargs')
+        .alias('s', 'src')
+        .alias('d', 'dest')
+        .argv;
+
+// Use gulp as an easy way to transform files through onespace
+gulp.src(args.src || args._[0])
+    .pipe(through2.obj(function(file, enc, callback) {
+        if (file.isNull() || file.isDirectory()) {
+            // Pass file through
+            this.push(file);
+            return callback();
+        }
+
+        if (file.isStream()) {
+            this.emit('error', new PluginError({
+                plugin: 'onespace',
+                message: 'streams not supported'
+            }));
+            return callback();
+        }
+
+        if (file.isBuffer()) {
+            gutil.log(gutil.colors.cyan('[onespace]') + ' converting ' + file.basename + '...');
+
+            // onespaceify
+            file.contents = new Buffer(onespace.convert(file.contents.toString()), 'utf8');
+
+            this.push(file);
+            return callback();
+        }
+    }))
+    .pipe(gulp.dest(args.dest || args._[1]))
+    .on('end', () => {
+        gutil.log(gutil.colors.cyan('[onespace]') + ' done');
+    });
