@@ -1,7 +1,7 @@
 # onespace 
 
 ̴̵̶̷̸̡̢̧̨̛̖̗̘̙̜̝̞̟̠̣̤̥̦̩̪̫̬̭̮̯̰̱̲̳̹̺̻̼͇͈͉͍͎̀́̂̃̄̅̆̇̈̉̊̋̌̍̎̏̐̑̒̓̔̽̾̿̀́͂̓̈́͆͊͋͌̕̚ͅ͏͓͔͕͖͙͚͐͑͒͗͛ͣͤͥͦͧͨͩͪͫͬͭͮͯ͘͜͟͢͝͞͠͡
-Encode and decode a string of (a subset of) ASCII as a single character using [combining diacritical marks](http://unicode.org/charts/PDF/U0300.pdf).  Credit for the original idea goes to [@aemkei](http://aem1k.com/).
+Encode and decode a string of (a subset of) ASCII as a single character using [combining diacritical marks](http://unicode.org/charts/PDF/U0300.pdf).  Credit for the original idea goes to [@aemkei](http://aem1k.com/).  Can be used in node or any modern browser.
 
 ### API
 ```sh
