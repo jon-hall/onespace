@@ -22,4 +22,6 @@ assert(original === converted, 'expected double-converted to be same as original
 
 del.sync(root + '/_cli_test_results/**');
 
+/*eslint-disable no-console*/
 console.log('test passed');
+/*eslint-enable no-console*/
